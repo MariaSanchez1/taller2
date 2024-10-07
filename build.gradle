@@ -26,7 +26,7 @@ configurations {
         extendsFrom testImplementation
     }
 }
-task cucumberCli() {
+task cucumber() {
     dependsOn assemble, testClasses
     doLast {
         javaexec {
@@ -35,8 +35,9 @@ task cucumberCli() {
             args = [
                     '--plugin', 'pretty',
                     '--plugin', 'html:target/cucumber-report.html',
-                    '--glue', 'com.baeldung.cucumber',
-                    'src/test/resources']
+                    '--glue', 'runner',
+                    'src/test/resources',
+            '--tags'] + [testSuite]
         }
     }
 }
