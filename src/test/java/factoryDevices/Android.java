@@ -11,17 +11,16 @@ import java.time.Duration;
 public class Android implements IDevices{
     @Override
     public AppiumDriver create() {
-        DesiredCapabilities config = new DesiredCapabilities();
-        config.setCapability("appium:deviceName","Pixel 8a API 34");
-        config.setCapability("appium:platformVersion","14.0");
-        //config.setCapability("appium:appPackage","com.android.contacts");
-        //config.setCapability("appium:appActivity","com.android.contacts.activities.PeopleActivity");
-        config.setCapability("appium:app","/Users/pc-tomas/Downloads/Todo.apk");
+       DesiredCapabilities config = new DesiredCapabilities();
+        config.setCapability("appium:deviceName","JBGroup9");
+        config.setCapability("appium:platformVersion","9.0");
+        config.setCapability("appium:appPackage","com.vrproductiveapps.whendo");
+        config.setCapability("appium:appActivity","com.vrproductiveapps.whendo.ui.HomeActivity");
         config.setCapability("platformName","Android");
         config.setCapability("appium:automationName","uiautomator2");
         AppiumDriver android = null;
         try {
-            android = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),config);
+            android = new AndroidDriver(new URL("http://192.168.1.19:4723/wd/hub"),config);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
