@@ -17,7 +17,7 @@ import java.util.Map;
 public class MyStepCreateTask {
 
     AppiumDriver android;
-    @Given("tengo acceso a whenDoApp")
+    //@Given("tengo acceso a whenDoApp")
     public void tengoAccesoAWhenDoApp() throws MalformedURLException {
         DesiredCapabilities config = new DesiredCapabilities();
         config.setCapability("platformName","Android");
@@ -30,7 +30,7 @@ public class MyStepCreateTask {
         android.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
     }
 
-    @When("creo una nueva tarea con titulo {word} y descripcion {word}")
+    //@When("creo una nueva tarea con titulo {word} y descripcion {word}")
     public void creoUnaNuevaTarea(String titulo, String descripcion) {
         android.findElement(By.id("com.vrproductiveapps.whendo:id/fab")).click();
         android.findElement(By.id("com.vrproductiveapps.whendo:id/noteTextTitle")).sendKeys(titulo);
@@ -38,7 +38,7 @@ public class MyStepCreateTask {
         android.findElement(By.id("com.vrproductiveapps.whendo:id/saveItem")).click();
     }
 
-    @Then("la tarea {word} deberia ser creada")
+    //@Then("la tarea {word} deberia ser creada")
     public void laTareaDeberiaSerCreada(String expectedResult) {
         String actualResult = android.findElement(By.id("com.vrproductiveapps.whendo:id/home_list_item_text")).getText();
 
